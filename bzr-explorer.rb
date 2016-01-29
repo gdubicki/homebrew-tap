@@ -1,8 +1,8 @@
 class BzrExplorer < Formula
   desc "Bazaar Explorer - GUI for interacting with Bazaar repositories"
   homepage "https://github.com/fmccann/homebrew-bzr-explorer"
-  url "https://github.com/fmccann/homebrew-bzr-explorer/archive/1.0.1.tar.gz"
-  sha256 "f70e9ccdfd4da909a278f32a77075f13202adb91d78355d0081a323b7c12bce2"
+  url "https://github.com/fmccann/homebrew-bzr-explorer/archive/1.0.2.tar.gz"
+  sha256 "5034859cba0c9c82a89e1b69d85b2fa682bc3d6c41a8a0ce841bbc995e79a457"
 
   depends_on "bazaar"
   depends_on "qt"
