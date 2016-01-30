@@ -3,6 +3,7 @@ class BzrExplorer < Formula
   homepage "https://github.com/fmccann/homebrew-bzr-explorer"
   url "https://github.com/fmccann/homebrew-bzr-explorer/archive/1.0.2.tar.gz"
   sha256 "5034859cba0c9c82a89e1b69d85b2fa682bc3d6c41a8a0ce841bbc995e79a457"
+  revision 2
 
   depends_on "bazaar"
   depends_on "qt"
@@ -10,7 +11,7 @@ class BzrExplorer < Formula
   depends_on "pyqt"
 
   def install
-    plugin_dir = "/Users/#{ENV['LOGNAME']}/.bazaar/plugins"
+    plugin_dir = "#{HOMEBREW_PREFIX}/share/bazaar/plugins"
     mkdir_p(plugin_dir)
 
     if Dir.exist?("#{plugin_dir}/qbzr")
