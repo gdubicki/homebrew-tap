@@ -1,44 +1,17 @@
 class BzrExplorer < Formula
-  desc "Bazaar Explorer - GUI for interacting with Bazaar repositories"
-  homepage "https://github.com/fmccann/homebrew-bzr-explorer"
-  url "https://github.com/fmccann/homebrew-bzr-explorer/archive/1.0.2.tar.gz"
-  sha256 "5034859cba0c9c82a89e1b69d85b2fa682bc3d6c41a8a0ce841bbc995e79a457"
-  revision 2
+  desc "Desktop application for using the Bazaar Version Control System"
+  homepage "https://launchpad.net/bzr-explorer"
+  url "https://launchpad.net/bzr-explorer/1.3/1.3.0/+download/bzr-explorer-1.3.0.tar.gz"
+  sha256 "e3584df263a5004765a224cc38d00449e0ad47495070edae59ecbcc4dac94086"
 
   depends_on "bazaar"
-  depends_on "qt"
-  depends_on "sip"
-  depends_on "pyqt"
+  depends_on "qbzr"
 
   def install
-    plugin_dir = "#{HOMEBREW_PREFIX}/share/bazaar/plugins"
-    mkdir_p(plugin_dir)
-
-    if Dir.exist?("#{plugin_dir}/qbzr")
-      ohai "Updating bzr-explorer plugin"
-      Dir.chdir("#{plugin_dir}/qbzr") do
-        system "bzr", "pull"
-      end
-    else
-      ohai "Installing qbzr plugin"
-      system "bzr", "branch", "lp:qbzr", "#{plugin_dir}/qbzr"
-    end
-
-    if Dir.exist?("#{plugin_dir}/explorer")
-      ohai "Updating bzr-explorer plugin"
-      Dir.chdir("#{plugin_dir}/explorer") do
-        system "bzr", "pull"
-      end
-    else
-      ohai "Installing bzr-explorer plugin"
-      system "bzr", "branch", "lp:bzr-explorer", "#{plugin_dir}/explorer"
-    end
-
-    bin.install "bzr-explorer"
-
-    puts "\nBazaar Explorer is installed!\n\nInvoke Bazaar Explorer by running 'bzr-explorer'.\n\n"
+    (share/"bazaar/plugins/explorer").install Dir["*"]
   end
 
   test do
+    assert_match /Desktop application for Bazaar/, shell_output("bzr help explorer")
   end
 end
