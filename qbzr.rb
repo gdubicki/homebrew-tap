@@ -5,12 +5,18 @@ class Qbzr < Formula
   sha256 "3211adef11c975dfbb6c80285651e2e6f3bfa99f1baa1a95371e8490ea8ff441"
 
   depends_on "bazaar"
-  depends_on "qt"
   depends_on "pyqt"
-  depends_on "sip"
 
   def install
     (share/"bazaar/plugins/qbzr").install Dir["*"]
+  end
+
+  def caveats; <<-EOS.undent
+    In order to use this plugin you must set your PYTHONPATH in your ~/.bashrc:
+
+      export PYTHONPATH="#{opt_libexec}/vendor/lib/python2.7/site-packages:$PYTHONPATH"
+
+  EOS
   end
 
   test do

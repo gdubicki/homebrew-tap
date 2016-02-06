@@ -11,6 +11,14 @@ class BzrExplorer < Formula
     (share/"bazaar/plugins/explorer").install Dir["*"]
   end
 
+  def caveats; <<-EOS.undent
+    In order to use this plugin you must set your PYTHONPATH in your ~/.bashrc:
+
+      export PYTHONPATH="#{opt_libexec}/vendor/lib/python2.7/site-packages:$PYTHONPATH"
+
+  EOS
+  end
+
   test do
     assert_match /Desktop application for Bazaar/, shell_output("bzr help explorer")
   end
