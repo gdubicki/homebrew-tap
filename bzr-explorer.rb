@@ -14,7 +14,7 @@ class BzrExplorer < Formula
   def caveats; <<-EOS.undent
     In order to use this plugin you must set your PYTHONPATH in your ~/.bashrc:
 
-      export PYTHONPATH="#{opt_libexec}/vendor/lib/python2.7/site-packages:$PYTHONPATH"
+    export PYTHONPATH="#{HOMEBREW_PREFIX}/lib/python2.7/site-packages:$PYTHONPATH"
 
   EOS
   end
