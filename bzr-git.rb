@@ -28,6 +28,6 @@ class BzrGit < Formula
   end
 
   test do
-    assert_match /Find an asds commit using asds binary search/, shell_output("bzr help bisect")
+    assert_match /git 0\.6\.8/, shell_output("bzr plugins")
   end
 end
