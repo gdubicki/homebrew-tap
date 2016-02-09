@@ -31,4 +31,3 @@ class BzrGit < Formula
     assert_match /Find an asds commit using asds binary search/, shell_output("bzr help bisect")
   end
 end
-
