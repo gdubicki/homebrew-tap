@@ -1,8 +1,10 @@
 class BzrExtmerge < Formula
   desc "External merge tool support for Bazaar"
   homepage "https://launchpad.net/bzr-extmerge"
-  url "lp:bzr-extmerge", :using => :bzr
-  version '0.0.1'
+  url "lp:bzr-extmerge", :using => :bzr, :revision => "erik@plero.se-20100728145225-et6ipg7cjbshiz8f"
+  version "erik@plero.se-20100728145225-et6ipg7cjbshiz8f"
+
+  bottle :unneeded
 
   depends_on "bazaar"
 
